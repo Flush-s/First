@@ -6,7 +6,14 @@ export default {
         "./resources/**/*.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                close: "url('../../../public/close.svg')",
+            },
+        },
+        fontFamily: {
+            mainfont: ["Jura"],
+        },
     },
     plugins: [],
 };
