@@ -7,9 +7,6 @@ export default {
     ],
     theme: {
         extend: {
-            backgroundImage: {
-                close: "url('../../../public/close.svg')",
-            },
         },
         fontFamily: {
             mainfont: ["Jura"],

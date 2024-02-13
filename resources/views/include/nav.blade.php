@@ -1,13 +1,33 @@
-<!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-<!-- Main navigation container -->
-<nav class="font-mainfont flex   mb-[30px]">
-	<h1 class="text-[52px] ml-1 mr-[70px]">Навигация</h1>
-	<div class="flex items-end pb-[5px]">
-		<a href="#" class="text-[37px] mr-[37px]">Главная</a>
-		<a href="#" class="text-[37px] mr-[37px]">Группы</a>
-		<a href="#" class="text-[37px] mr-[37px]">Студенты</a>
-		<a href="#" class="text-[37px] mr-[37px]">Предметы</a>
-		<a href="#" class="text-[37px] mr-[37px]">Преподаватели</a>
-		<a href="#" class="text-[37px] mr-[37px]">Расписание</a>
+<div class="flex">
+	<div class="bg-[#0F0F0F] border-r border-[#868686]">
+		<div class="flex items-center p-6 border-b border-[#868686] justify-center w-[365px]">
+			@include ("include.img.logoImg")
+			<h1 class="ml-2 text-6xl text-white">NAVBAR</h1>
+		</div>
+		<div class="h-screen">
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.groupsImg")
+				<p class="ml-2">Главная</p>
+			</a>
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.studentImg")
+				<p class="ml-2">Группы</p>
+			</a>
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.subjectImg")
+				<p class="ml-2">Студенты</p>
+			</a>
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.teachersImg")
+				<p class="ml-2">Предметы</p>
+			</a>
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.scheduleImg")
+				<p class="ml-2">Преподаватели</p>
+			</a>
+			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
+				@include ("include.img.groupsImg")
+				<p class="ml-2">Расписание</p>
+			</a>
+		</div>
 	</div>
-</nav>
