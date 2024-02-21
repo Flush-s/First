@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Groups;
 
 class GroupsController extends Controller
 {
@@ -11,7 +12,8 @@ class GroupsController extends Controller
      */
     public function index()
     {
-        return view('groups.groups');
+        $groups = Groups::all();
+        return view('groups.index', compact("groups"));
     }
 
     /**
@@ -19,7 +21,7 @@ class GroupsController extends Controller
      */
     public function create()
     {
-        //
+        return view('groups.create');
     }
 
     /**
@@ -27,7 +29,12 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Groups::create([
+            'name' => $request->name,
+            'mentor' => $request->mentor,
+        ]);
+        return redirect()->route('groups.index');
+        // dd($request);
     }
 
     /**
@@ -57,8 +64,9 @@ class GroupsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Groups $group)
     {
-        //
+        $group->delete();
+        return redirect()->route('groups.index');
     }
 }

@@ -15,10 +15,10 @@
 
 	@include ("include.nav")
 
-    @yield("table")
+	@yield("table")
 
-    
-    
+
+
 </body>
 
 </html>
