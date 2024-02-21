@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\MyPlaceController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\GroupsController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -20,7 +22,5 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/groups', function () {
-	return view('groups.groups');
-});
+Route::get('/groups', [GroupsController::class, 'index']);
 
