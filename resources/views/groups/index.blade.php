@@ -32,7 +32,7 @@
 					</td>
 					<td class="flex items-center py-4">
 						<a href="#" class="pr-7">Посмотреть</a>
-						<a href="#" class="pr-7">Редактировать</a>
+						<a href="{{ route('groups.edit', $group->id) }}" class="pr-7">Редактировать</a>
 						<form action="{{ route('groups.destroy', $group->id) }}" method="Post">
 							@csrf
 							@method('delete')

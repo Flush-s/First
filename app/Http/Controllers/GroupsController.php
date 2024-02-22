@@ -29,10 +29,17 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        Groups::create([
-            'name' => $request->name,
-            'mentor' => $request->mentor,
+        $request->validate([
+            'name' => 'required',
+            'mentor' => 'required'
         ]);
+
+
+        $groups = new Groups;
+        $groups->name = $request->name;
+        $groups->mentor = $request->mentor;
+
+        $groups->save();
         return redirect()->route('groups.index');
         // dd($request);
     }
@@ -50,15 +57,26 @@ class GroupsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $groups = Groups::findOrFail($id);
+        return view('groups.edit', ['groups' => $groups]);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Groups $groups, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'mentor' => 'required'
+        ]);
+        $groups->name = $request->name;
+        $groups->mentor = $request->mentor;
+
+        $groups->save();
+
+        return redirect()->route('groups.index');
     }
 
     /**
