@@ -64,18 +64,6 @@ class GroupsController extends Controller
         $groups->update($request->all());
 
         return redirect()->route('groups.index');
-
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'mentor' => 'required'
-        // ]);
-        // $groups->name = $request->name;
-        // $groups->mentor = $request->mentor;
-
-        // $groups->save();
-
-        // return redirect()->route('groups.index');
     }
 
     /**
