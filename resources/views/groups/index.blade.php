@@ -31,8 +31,12 @@
 						{{ $group->mentor }}
 					</td>
 					<td class="flex items-center py-4">
-						<a href="#" class="pr-7">Посмотреть</a>
-						<a href="{{ route('groups.edit', $group->id) }}" class="pr-7">Редактировать</a>
+						<a href="{{ route('groups.show', $group) }}" class="pr-7">Посмотреть</a>
+						<form action="{{ route('groups.destroy', $group->id) }}">
+							@csrf
+							@method('delete')
+							<a href="{{ route('groups.edit', $group->id) }}" class="pr-7">Редактировать</a>
+						</form>
 						<form action="{{ route('groups.destroy', $group->id) }}" method="Post">
 							@csrf
 							@method('delete')

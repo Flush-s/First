@@ -29,17 +29,7 @@ class GroupsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'mentor' => 'required'
-        ]);
-
-
-        $groups = new Groups;
-        $groups->name = $request->name;
-        $groups->mentor = $request->mentor;
-
-        $groups->save();
+        Groups::create($request->all());
         return redirect()->route('groups.index');
         // dd($request);
     }
@@ -49,7 +39,8 @@ class GroupsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $groups = Groups::findOrFail($id);
+        return view('groups.show', compact('groups'));
     }
 
     /**
@@ -58,7 +49,7 @@ class GroupsController extends Controller
     public function edit(string $id)
     {
         $groups = Groups::findOrFail($id);
-        return view('groups.edit', ['groups' => $groups]);
+        return view('groups.edit', compact('groups'));
 
     }
 
@@ -67,16 +58,24 @@ class GroupsController extends Controller
      */
     public function update(Request $request, Groups $groups, string $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'mentor' => 'required'
-        ]);
-        $groups->name = $request->name;
-        $groups->mentor = $request->mentor;
 
-        $groups->save();
+        $groups = Groups::findOrFail($id);
+
+        $groups->update($request->all());
 
         return redirect()->route('groups.index');
+
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'mentor' => 'required'
+        // ]);
+        // $groups->name = $request->name;
+        // $groups->mentor = $request->mentor;
+
+        // $groups->save();
+
+        // return redirect()->route('groups.index');
     }
 
     /**
