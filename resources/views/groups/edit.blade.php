@@ -8,20 +8,24 @@
 	<title>Document</title>
 </head>
 
-<body>
+<body class="bg-[#0F0F0F]">
 	<div class="w-full max-w-xs m-auto mt-[300px]">
-		<form action="{{ route('groups.update', $groups -> id) }}" class="w-[300px] h-[300px] bg-slate-700 rounded-xl"
+		<form action="{{ route('groups.update',$groups) }}" class="w-[400px] h-[400px] bg-slate-700 rounded-xl"
 			method="Post">
 			@csrf
 			@method('PUT')
-			<div class="text-center text-xl pt-[25px]">
-				Добавить группу
+			<div class="text-center text-white text-3xl pt-[25px]">
+				Редактировать
 			</div>
-			<input type="text" value="{{ $groups->name }}" name="name" class="mt-[25px] mx-4 py-2 px-10 rounded-xl"
-				placeholder="Название группы">
-			<input type="text" value="{{ $groups->mentor }}" name="mentor" class="mt-[10px] mx-4 py-2 px-10 rounded-xl"
-				placeholder="Имя старосты">
-			<button type="submit" class="text-white  my-[30px] ml-16 bg-red-700 py-2 px-10 rounded-xl">Отправить</button>
+			<input type="text" name="name" class="mt-[60px] mx-[65px] py-2 px-10 rounded-xl " value="{{ $groups->name }}"
+				placeholder="Название группы" required>
+			<input type="text" name="mentor" class="mt-[20px] mx-[65px] py-2 px-10 rounded-xl" value="{{ $groups->mentor }}"
+				placeholder="Имя старосты" required>
+			<button type="submit"
+				class="text-white  mt-[40px] mb-4 ml-16 bg-red-700 py-2 px-[92px] rounded-xl active:scale-105 active:bg-red-900">Отправить</button>
+			<a href=" {{ route('groups.index',$groups) }}"
+				class="text-white  ml-16 bg-red-700 py-2 px-[96px] rounded-xl active:scale-105 active:bg-red-900">Отменить
+			</a>
 		</form>
 	</div>
 </body>
