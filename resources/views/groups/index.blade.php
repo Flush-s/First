@@ -14,8 +14,8 @@
 		<table>
 			<thead class="border-b border-[#868686]">
 				<th class="pr-14 py-2">#</th>
-				<th class="pr-14">Группа</th>
-				<th class="pr-[600px]">Староста</th>
+				<th class="pr-[100px]">Группа</th>
+				<th class="pr-[565px]">Староста</th>
 				<th>Управление группой</th>
 			</thead>
 			<tbody class="w-full">
