@@ -11,7 +11,7 @@
 		</a>
 	</div>
 	<div class="text-3xl">
-		<div class = "flex">
+		<div class = "flex border-b border-[#868686] py-4">
 			<p class = "mr-[25px]" >#</p>
 			<p class = "mr-[110px]">Группа</p>
 			<p class = "mr-[650px]">Староста</p>
