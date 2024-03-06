@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\MyPlaceController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\GroupsController;
+use App\Http\Controllers\GroupController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,5 +22,5 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::resource('/groups', GroupsController::class);
+Route::resource('/groups', GroupController::class);
 

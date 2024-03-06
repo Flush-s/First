@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Http\Requests\StoreGroupRequest;
 
-class GroupsController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class GroupsController extends Controller
     public function index()
     {
         $group = Group::all();
-        return view('groups.index', compact("group"));
+        return view('groups.index', compact('group'));
     }
 
     /**
@@ -27,11 +28,11 @@ class GroupsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreGroupRequest $request)
     {
-        Group::create($request->all());
+        //dd($request->validated());
+        Group::create($request->validated());
         return redirect()->route('groups.index');
-        // dd($request);
     }
 
     /**
@@ -45,22 +46,17 @@ class GroupsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Group $group)
     {
-        $group = Group::findOrFail($id);
         return view('groups.edit', compact('group'));
-
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Groups $groups, string $id)
+    public function update(StoreGroupRequest $request, Group $group)
     {
-
-        $group = Groups::findOrFail($id);
-
-        $group->update($request->all());
+        $group->update($request->validated());
 
         return redirect()->route('groups.index');
     }
