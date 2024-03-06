@@ -16,10 +16,14 @@
 			<div class="text-center text-white text-3xl pt-[25px]">
 				Добавить группу
 			</div>
-			<input type="text" name="name" class="mt-[60px] mx-[65px] py-2 px-10 rounded-xl " placeholder="Название группы"
-				required>
-			<input type="text" name="mentor" class="mt-[20px] mx-[65px] py-2 px-10 rounded-xl" placeholder="Имя старосты"
-				required>
+			<input type="text" name="name" class="mt-[60px] mx-[65px] py-2 px-10 rounded-xl " placeholder="Название группы" value="{{ old('name') }}">
+			@error('name')
+    			<div class="alert alert-danger">{{ $message }}</div>
+			@enderror
+			<input type="text" name="mentor" class="mt-[20px] mx-[65px] py-2 px-10 rounded-xl" placeholder="Имя старосты" value="{{ old('mentor') }}">
+			@error('mentor')
+    			<div class="alert alert-danger">{{ $message }}</div>
+			@enderror
 			<button type="submit"
 				class="text-white  mt-[40px] mb-4 ml-16 bg-red-700 py-2 px-[92px] rounded-xl active:scale-105 active:bg-red-900">Отправить</button>
 			<a href=" {{ route('groups.index') }}"
