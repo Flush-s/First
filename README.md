@@ -1,14 +1,14 @@
 <h1>Start project</h1>
 <br>
-composer i
+<h4>composer i</h4>
 <br>
-create file .env
+<h4>create file .env</h4>
 <br>
-php artisan key:generate
+<h4>php artisan key:generate</h4>
 <br>
-php artisan migrate
+<h4>php artisan migrate</h4>
 <br>
-npm i
+<h4>npm i</h4>
 <br>
-npm i -D prettier
+<h4>npm i -D prettier</h4>
 <br>
