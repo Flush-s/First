@@ -1,18 +1,31 @@
 <div class="w-full max-w-xs m-auto mt-[300px]">
-    <form action="{{ route('groups.update',$group) }}" class="w-[400px] h-[400px] bg-slate-700 rounded-xl" 
-        method="Post"> <!-- взять из массива--> 
+    <form action="{{ $status }}"
+          class="w-[400px] h-[400px] bg-slate-700 rounded-xl"
+          method="Post"> <!-- взять из массива-->
         @csrf
-        @method('PUT') <!-- взять из массива--> 
+        @method('PUT') <!-- взять из массива-->
         <div class="text-center text-white text-3xl pt-[25px]">
-            Редактировать
+            {{ $name }}
         </div>
-        <input type="text" name="name" class="mt-[60px] mx-[65px] py-2 px-10 rounded-xl " value="{{ $group->name }}" 
-        placeholder="Название группы" required> <!--добавить тернарный оператор в value и использовать isset()-->
-        <input type="text" name="mentor" class="mt-[20px] mx-[65px] py-2 px-10 rounded-xl" value="{{ $group->mentor }}" placeholder="Имя старосты" required>
+        <input type="text" name="name"
+               class="mt-[60px] mx-[65px] py-2 px-10 rounded-xl "
+               placeholder="Название группы" required
+               groups.edit ? value={{ $group->name}} : value="">
+        {{--        value="{{ $group->name }}"--}}
+        <!--добавить тернарный оператор в value и использовать isset()-->
+        <input type="text" name="mentor"
+               class="mt-[20px] mx-[65px] py-2 px-10 rounded-xl"
+               placeholder="Имя старосты" required
+               groups.edit? value={{ $group->mentor }} : value="">
+        {{--        value="{{ $group->mentor }}"--}}
         <button type="submit"
-            class="text-white  mt-[40px] mb-4 ml-16 bg-red-700 py-2 px-[92px] rounded-xl active:scale-105 active:bg-red-900">Отправить</button>
+                class="text-white  mt-[40px] mb-4 ml-16 bg-red-700 py-2
+                px-[92px]  rounded-xl active:scale-105 active:bg-red-900">
+            Отправить
+        </button>
         <a href=" {{ route('groups.index') }}"
-            class="text-white  ml-16 bg-red-700 py-2 px-[96px] rounded-xl active:scale-105 active:bg-red-900">Отменить
+           class="text-white  ml-16 bg-red-700 py-2 px-[96px] rounded-xl
+           active:scale-105 active:bg-red-900">Отменить
         </a>
     </form>
 </div>

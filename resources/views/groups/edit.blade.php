@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	@vite('resources/css/app.css')
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
+    <title>Document</title>
 </head>
 
 <body class="bg-[#0F0F0F]">
-	@include('groups.form', ['status' => route('groups.index')]) <!-- добавить массив -->
+@include('groups.form', ['status' => route('groups.index'),
+'name'=>'Редактировать']) <!--
+	добавить массив -->
 </body>
 
 </html>
