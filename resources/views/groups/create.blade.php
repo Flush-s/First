@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-[#0F0F0F]">
-{{--<div class="w-full max-w-xs m-auto mt-[300px]">--}}
+<!-- {{--<div class="w-full max-w-xs m-auto mt-[300px]">--}}
 {{--    <form action="{{ route('groups.store') }}"--}}
 {{--          class="w-[400px] h-[400px] bg-slate-700 rounded-xl" method="Post">--}}
 {{--        @csrf--}}
@@ -40,10 +40,8 @@
 {{--            active:scale-105 active:bg-red-900">Отменить--}}
 {{--        </a>--}}
 {{--    </form>--}}
-{{--</div>--}}
-@include('groups.form',['status'=>route('groups.store'),'name'=>'Добавить группу'])
-
-
+{{--</div>--}} -->
+@include('groups.form',['status'=>route('groups.store'),'name'=>'Добавить группу', 'metod' => 'POST'])
 </body>
 
 </html>

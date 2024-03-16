@@ -27,7 +27,7 @@
 			</a>
 			<a href="#" class="text-white flex items-center text-3xl mt-8 ml-8 active:scale-105">
 				@include ("include.img.groupsImg")
-				<p class="ml-2">Расписание {{ $status . $origin }}</p>
+				<p class="ml-2">Расписание</p>
 			</a>
 		</div>
 	</div>

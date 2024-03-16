@@ -13,7 +13,7 @@
 
 <body class="bg-[#0F0F0F] font-mainfont">
 
-	@include ("include.nav", ['status' => 'complete', 'origin' => 'Russia'])
+	@include ("include.nav")
 
 	@yield("table")
 
