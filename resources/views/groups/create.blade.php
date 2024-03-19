@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-[#0F0F0F]">
-@include('groups.form',['status'=>route('groups.store'),'name'=>'Добавить группу', 'metod' => 'POST'])
+@include('groups.form', ['status' => route('groups.store'), 'name' => 'Добавить группу', 'metod' => 'POST'])
 </body>
 
 </html>

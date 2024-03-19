@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section("title",'Groups')
+@section("title", 'Groups')
 @section("table")
     <div class="text-white w-full mt-14 mx-4 px-4 ">
         <div class="flex justify-between border-b border-[#868686] pb-4 ">

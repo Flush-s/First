@@ -30,7 +30,7 @@
                    class=" mb-[50px] mx-[65px] py-2 px-10 rounded-xl disabled:bg-white"
                    placeholder="Имя старосты" required>
         </div>
-        <a href=" {{ route('groups.index',$group) }}"
+        <a href=" {{ route('groups.index', $group) }}"
            class="text-white  ml-[70px] bg-red-700 py-2 px-[96px] rounded-xl
 				 active:scale-105 active:bg-red-900">Отменить
         </a>

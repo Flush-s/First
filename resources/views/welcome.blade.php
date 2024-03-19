@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        @vite('resources/css/app.css')
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -134,6 +134,9 @@
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
+            </div>
+            <div class = " absolute text-9xl text-white bg-black rounded-xl p-12">
+                <a href="groups"> Groups </a>
             </div>
         </div>
     </body>
