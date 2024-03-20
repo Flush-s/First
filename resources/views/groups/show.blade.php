@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <title>Document</title>
+    <!-- Icons -->
+	<script src="https://kit.fontawesome.com/9687270865.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="bg-[#0F0F0F]">
@@ -35,6 +37,20 @@
 				 active:scale-105 active:bg-red-900">Отменить
         </a>
     </form>
+    <div class="flex text-white gap-8">
+        @foreach ($group->students as $student)
+            
+            <div class="flex m-4 gap-1">
+                <div class="mt-3">
+                {{ $student->name }}
+                </div>
+                <div class="fill-orange-700">
+                <img src="http://localhost:8000/storage/123.svg"><br>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    
 </div>
 </body>
 

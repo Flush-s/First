@@ -40,6 +40,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
+        $group->load('students');
+        
         return view('groups.show', compact('group'));
     }
 
