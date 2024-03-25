@@ -28,11 +28,11 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreGroupRequest $request)
+    public function store(Request $request)
     {
         //dd($request->validated());
-        Group::create($request->validated());
-        return redirect()->route('groups.index');
+        Group::create($request->input());
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -58,7 +58,7 @@ class GroupController extends Controller
     {
         $group->update($request->validated());
 
-        return redirect()->route('groups.index');
+        return redirect()->route('dashboard');
     }
 
     /**
@@ -67,6 +67,6 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         $group->delete();
-        return redirect()->route('groups.index');
+        return redirect()->route('dashboard');
     }
 }
