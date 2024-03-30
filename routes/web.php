@@ -1,11 +1,8 @@
 <?php
 
-use App\Http\Controllers\MyPlaceController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\GroupController;
+use App\Models\Group;
 use Illuminate\Support\Facades\Route;
-
-
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::view('/', 'welcome');
 
-Route::resource('/groups', GroupController::class);
+Route::resource('/groups', GroupController::class)
+    ->middleware(['auth', 'verified']);
 
+
+Route::get('dashboard', function () {
+    $groups = Group::all();
+    return view('dashboard', compact('groups'));
+})
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__ . '/auth.php';

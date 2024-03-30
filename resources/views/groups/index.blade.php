@@ -1,7 +1,4 @@
-@extends('layouts.app')
-@section("title", 'Groups')
-@section("table")
-    <div class="text-white w-full mt-14 mx-4 px-4 ">
+<div class="text-white w-full mt-14 mx-4 px-4 ">
         <div class="flex justify-between border-b border-[#868686] pb-4 ">
             <h2 class="text-5xl ">
                 Группы
@@ -25,10 +22,10 @@
                         <td class="w-[40px]">
                             {{ $loop->iteration }}
                         </td>
-                        <td class="w-[220px]">
+                        <td class="w-[400px]">
                             {{ $group->name }}
                         </td>
-                        <td class="w-[220px]">
+                        <td class="w-[400px]">
                             {{ $group->mentor }}
                         </td>
                         <td class="flex items-center pl-[500px] py-4">
@@ -42,18 +39,18 @@
                                    class="pr-7">Редактировать</a>
                             </form>
                             <form
-                                action="{{ route('groups.destroy', $group->id) }}"
-                                method="Post">
-                                @csrf
-                                @method('delete')
-                                <button
-                                    type="submit">@include ("include.img.closeImg")</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-        </div>
+                            action="{{ route('groups.destroy',$group->id) }}"
+                            method="Post">
+                            @csrf
+                            @method('delete')
+                            <button
+                                type="submit">@include ("include.img.closeImg")</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
-@endsection
+</div>
+
