@@ -9,6 +9,7 @@
 
     <div class="py-12">
         <div class="max-w-full mx-auto sm:px-6 lg:px-8">
+            <button class="bg-white  dark:bg-gray-800 text-gray-900 dark:text-gray-100 h-14 w-[200px] mb-4 rounded-xl border-2 dark:border-none" id="change">Change theme</button>
             <div
                 class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg"
             >
@@ -17,27 +18,27 @@
                         <div
                             class="flex justify-between border-b border-[#868686] pb-4"
                         >
-                            <h2 class="text-5xl">Группы</h2>
+                            <h2 class="text-5xl text-gray-900 dark:text-gray-100">Группы</h2>
                             <a
                                 href="{{ route('groups.create') }}"
-                                class="text-5xl active:scale-105"
+                                class="text-5xl active:scale-105 text-gray-900 dark:text-gray-100"
                             >
                                 Добавить группу
                             </a>
                         </div>
                         <div class="text-3xl">
                             <div class="flex border-b border-[#868686] py-4">
-                                <p class="mr-[25px]">#</p>
-                                <p class="mr-[280px]">Группа</p>
-                                <p class="mr-[945px]">Староста</p>
+                                <p class="mr-[25px] text-gray-900 dark:text-gray-100">#</p>
+                                <p class="mr-[280px] text-gray-900 dark:text-gray-100">Группа</p>
+                                <p class="mr-[945px] text-gray-900 dark:text-gray-100">Староста</p>
                                 <p>Управление группой</p>
                             </div>
                             <table class="w-full">
-                                <tbody class="flex-col">
-                                    @foreach($groups as $group)
+                                <tbody class="flex-col text-gray-900 dark:text-gray-100">
+                                    @foreach($groups as $key => $group)
                                     <tr class="border-b border-[#868686]">
                                         <td class="w-[40px]">
-                                            {{ $loop->iteration }}
+                                            {{ $groups->firstItem() + $key }}
                                         </td>
                                         <td class="w-[400px]">
                                             {{ $group->name }}
@@ -49,9 +50,7 @@
                                             class="flex items-center pl-[500px] py-4"
                                         >
                                             <a
-                                                href="{{
-        route('groups.show', $group)
-                                                }}"
+                                                href="{{route('groups.show', $group)}}"
                                                 class="pr-7"
                                                 >Посмотреть</a
                                             >
@@ -79,6 +78,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div>
+                                {{ $groups->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

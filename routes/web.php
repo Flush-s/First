@@ -20,11 +20,10 @@ Route::view('/', 'welcome');
 Route::resource('/groups', GroupController::class)
     ->middleware(['auth', 'verified']);
 
-
 Route::get('dashboard', function () {
-    $groups = Group::all();
+    $groups = Group::paginate(5);
     return view('dashboard', compact('groups'));
-})
+})      
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 

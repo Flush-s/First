@@ -13,9 +13,10 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $group = Group::all();
-        return view('groups.index', compact('group'));
+        
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +31,6 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->validated());
         Group::create($request->input());
         return redirect()->route('dashboard');
     }
