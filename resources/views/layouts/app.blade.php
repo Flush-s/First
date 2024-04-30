@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html 
  lang="{{ str_replace('_', '-', app()->getLocale()) }}"
- class="dark" id="home">
+ class="" id="home">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased light">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
             <livewire:layout.navigation />
 
@@ -39,21 +39,44 @@
         <script>
             let home = document.getElementById('home');
             let change = document.getElementById('change');
+            let currentTheme = localStorage.getItem("theme")
 
 
+            if (currentTheme == "dark"){
+                document.body.classList = "dark"
+            }
 
             change.addEventListener('click',()=>{
-                if(localStorage.darkmode == false){
-                    localStorage.darkmode = false
-                }else{
-                    localStorage.darkmode = true
-                } 
-            })
-                if( home.classList="dark"){
-                    localStorage.darkmode = true
-                }else{
-                    localStorage.darkmode = false
+                document.body.classList.toggle('dark');
+                let theme = "light";
+
+                if(document.body.classList.contains("dark")){
+                    theme = "dark"
                 }
+
+                localStorage.setItem('theme',theme);
+            })
+
+            // change.addEventListener('click', ()=>{
+            //     if(home.classList == "dark"){
+            //         home.classList = "light"
+            //     }else{
+            //         home.classList = "dark"
+            //     }
+            // })
+
+            // change.addEventListener('click',()=>{
+            //     if(localStorage.darkmode == false){
+            //         localStorage.darkmode = false
+            //     }else{
+            //         localStorage.darkmode = true
+            //     } 
+            // })
+            //     if( home.classList="dark"){
+            //         localStorage.darkmode = true
+            //     }else{
+            //         localStorage.darkmode = false
+            //     }
 
         </script>
     </body>
