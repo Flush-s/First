@@ -11,12 +11,12 @@ class GroupController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        
+        $groups = Group::where('name', 'like', '%' . $request->search . '%')->orWhere('mentor', 'like', '%' . $request->search . '%')->paginate(5);
+        $search = $request->search;
+        return view('dashboard', compact('groups', 'search'));
     }
-
-    
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +32,7 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         Group::create($request->input());
-        return redirect()->route('dashboard');
+        return redirect()->route('groups.index');
     }
 
     /**
@@ -58,7 +58,7 @@ class GroupController extends Controller
     {
         $group->update($request->validated());
 
-        return redirect()->route('dashboard');
+        return redirect()->route('groups.index');
     }
 
     /**
@@ -67,6 +67,6 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         $group->delete();
-        return redirect()->route('dashboard');
+        return redirect()->route('groups.index');
     }
 }
